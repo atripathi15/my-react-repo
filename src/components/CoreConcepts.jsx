@@ -1,19 +1,17 @@
-/*export function CoreConcepts(props){
-  return (
-    <li>
-    <img src={props.image} alt="" />
-    <h3>{props.title}</h3>
-    <p>{props.description}</p>
-    </li>
-  );
-}*/
+import CoreConcept from "./CoreConcept";
+import { CORE_CONCEPTS } from "../data";
+import Section from "./Section";
 
-export default function CoreConcepts({title,description,image}){
+export default function CoreConcepts() {
     return (
-      <li>
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-      </li>
+        <Section title="Core Concepts" id="core-concepts" >
+
+            <ul>
+                {
+                    CORE_CONCEPTS.map((concept) => (<CoreConcept key={concept.title} {...concept} />))
+                }
+
+            </ul>
+        </Section>
     );
-  }
+}
